@@ -1,0 +1,15 @@
+// MyService.proto
+
+syntax = "proto3";
+
+message GreeterRequest {
+  string message = 1;
+}
+
+message GreeterResponse {
+  string message = 1;
+}
+
+service GreeterService {
+  rpc Greet(GreeterRequest) returns (GreeterResponse);
+}
