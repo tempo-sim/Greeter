@@ -3,7 +3,7 @@ Greeter is a simple example plugin demonstrating the use of TempoScripting to ad
 
 Your project must already be using [Tempo](https://github.com/tempo-sim/Tempo). Specifically
 - Tempo in the Plugins directory
-- *.Target.cs files set up to use the Tempo build Toolchains
+- *.Target.cs files set up to use the Tempo build Toolchains (see [here](https://github.com/tempo-sim/Tempo/tree/tempo-readme#project-changes))
 
 Once you build your project with Tempo and the Greeter plugin, you can:
 
