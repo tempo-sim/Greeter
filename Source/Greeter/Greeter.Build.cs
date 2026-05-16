@@ -26,7 +26,7 @@ public class Greeter : TempoModuleRules
 			new string[]
 			{
 				"Core",
-				"TempoScripting",
+				"TempoCore",
 				// ... add other public dependencies that you statically link with here ...
 			}
 			);

@@ -2,8 +2,8 @@
 
 #pragma once
 
-#include "TempoScriptable.h"
-#include "TempoScriptingServer.h"
+#include "TempoServiceProvider.h"
+#include "TempoServer.h"
 
 #include "CoreMinimal.h"
 
@@ -16,12 +16,12 @@ namespace Greeter
 }
 
 UCLASS(Blueprintable)
-class GREETER_API AGreeterActor : public AActor, public ITempoScriptable
+class GREETER_API AGreeterActor : public AActor, public ITempoServiceProvider
 {
 	GENERATED_BODY()
 
 public:
-	virtual void RegisterScriptingServices(FTempoScriptingServer& ScriptingServer) override;
+	virtual void RegisterServices(FTempoServer& Server) override;
 
 	virtual void BeginPlay() override;
 

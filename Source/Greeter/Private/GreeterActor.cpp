@@ -10,9 +10,9 @@ using GreeterServiceAsync = Greeter::GreeterService::AsyncService;
 using GreeterRequest = Greeter::GreeterRequest;
 using GreeterResponse = Greeter::GreeterResponse;
 
-void AGreeterActor::RegisterScriptingServices(FTempoScriptingServer& ScriptingServer)
+void AGreeterActor::RegisterServices(FTempoServer& Server)
 {
-	ScriptingServer.RegisterService<GreeterService>(
+	Server.RegisterService<GreeterService>(
 		 SimpleRequestHandler(&GreeterServiceAsync::RequestGreet, &AGreeterActor::HandleGreeterRequest)
 	 );
 }
@@ -21,14 +21,14 @@ void AGreeterActor::BeginPlay()
 {
 	Super::BeginPlay();
 
-	FTempoScriptingServer::Get().ActivateService<GreeterService>(this);
+	FTempoServer::Get().ActivateService<GreeterService>(this);
 }
 
 void AGreeterActor::EndPlay(const EEndPlayReason::Type EndPlayReason)
 {
 	Super::EndPlay(EndPlayReason);
 
-	FTempoScriptingServer::Get().DeactivateService<GreeterService>();
+	FTempoServer::Get().DeactivateService<GreeterService>();
 }
 
 void AGreeterActor::HandleGreeterRequest(const GreeterRequest& Request, const TResponseDelegate<GreeterResponse>& ResponseContinuation) const
